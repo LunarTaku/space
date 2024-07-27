@@ -76,7 +76,7 @@
 	</form>
 	<div class="border-t border-white/10 p-5 text-sm text-neutral-500">
 		<p>
-			By creating an account you agree to Re:Booru's <a href="/terms" class="text-blue-400"
+			By creating an account you agree to Space's <a href="/terms" class="text-blue-400"
 				>Terms of Service</a
 			>
 			and <a href="/privacy" class="text-blue-400">Privacy Policy</a>
