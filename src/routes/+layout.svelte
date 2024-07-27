@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex flex-row justify-center h-screen w-full">
-	<div class="mt-5" style="min-width: calc(100vw - 40vw);">
+	<div class="mt-5" style="min-width: calc(100vw - 40vw); max-width: calc(100vw - 40vw);">
 		<nav class="flex flex-row justify-between items-center p-5 border rounded-xl border-white/10 bg-neutral-900 mb-5">
 			<div>
 				<a href="/" class="text-xl font-semibold">Space</a>
@@ -32,6 +32,8 @@
 			</div>
 		</nav>
 		
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</div>
 </div>

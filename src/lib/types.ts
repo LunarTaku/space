@@ -55,3 +55,21 @@ export function validatePost(data: Post) {
 		likes: validatedLikes
 	};
 }
+
+export interface Posts {
+	collectionId:   string;
+	collectionName: string;
+	comments:       string;
+	content:        string;
+	created:        Date;
+	dislikes:       number;
+	favorites:      number;
+	id:             string;
+	image:          string;
+	likes:          number;
+	reports:        string;
+	tags:           null;
+	title:          string;
+	updated:        Date;
+	user:           string;
+}
