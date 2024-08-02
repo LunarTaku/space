@@ -1,8 +1,9 @@
+
 import { redirect } from '@sveltejs/kit';
+
 
 export const actions = {
 	default: async ({ locals, request }) => {
-
 		const { name, email, password, passwordConfirm } = await Object.fromEntries(
 			await request.formData()
 		);
@@ -30,12 +31,15 @@ export const actions = {
 
 			if (password !== passwordConfirm) throw new Error('Passwords do not match');
 
+			const avatars = await locals.pocketBase.collection('avatars').getFullList()
+
 			await locals.pocketBase.collection('users').create({
 				name,
 				password,
 				passwordConfirm,
 				email,
-				emailVisibility: false
+				emailVisibility: false,
+				defaultAvatar: avatars[Math.floor(Math.random() * avatars.length)].id
 			});
 
 			await locals.pocketBase.collection('users').authWithPassword(email, password);

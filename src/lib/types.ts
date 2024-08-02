@@ -57,19 +57,52 @@ export function validatePost(data: Post) {
 }
 
 export interface Posts {
-	collectionId:   string;
+	collectionId: string;
 	collectionName: string;
-	comments:       string;
-	content:        string;
-	created:        Date;
-	dislikes:       number;
-	favorites:      number;
-	id:             string;
-	image:          string;
-	likes:          number;
-	reports:        string;
-	tags:           null;
-	title:          string;
-	updated:        Date;
-	user:           string;
+	comments: string;
+	content: string;
+	created: Date;
+	dislikes: number;
+	favorites: number;
+	id: string;
+	image: string;
+	likes: number;
+	reports: string;
+	tags: null;
+	title: string;
+	updated: Date;
+	user: string;
+}
+
+export interface PBPost {
+	collectionId: string;
+	collectionName: string;
+	comments: string;
+	content: string;
+	created: Date;
+	dislikes: number;
+	favorites: number;
+	id: string;
+	image: string;
+	likes: number;
+	reports: string;
+	tags: string;
+	title: string;
+	updated: Date;
+	user: string;
+	expand: {
+		user: {
+			avatar: string;
+			collectionId: string;
+			collectionName: string; 
+			created: Date;
+			email: string;
+			emailVisibility: boolean;
+			id: string;
+			name: string;
+			updated: Date;
+			username: string;
+			verified: boolean;
+		};
+	};
 }

@@ -1,4 +1,17 @@
 import { redirect } from '@sveltejs/kit';
+
+export const load = async ({ locals }) => {
+	const tags = await locals.pocketBase.collection('tags').getFullList({
+		sort: '-uses',
+		page: 0,
+		perPage: 10
+	});
+
+	return {
+		tags: tags
+	};
+};
+
 export const actions = {
 	default: async ({ locals, request }) => {
 		if (!locals.pocketBase.authStore.isValid) throw redirect(303, '/');
@@ -8,7 +21,6 @@ export const actions = {
 		try {
 			if (title.toString().length <= 0) throw new Error('Title is required');
 			if (description.toString().length <= 0) throw new Error('Description is required');
-			if (tags.toString().length <= 0) throw new Error('Tags are required');
 			if (!image) throw new Error('Image is required');
 			if (typeof title !== 'string') throw new Error('Title is required');
 			if (typeof description !== 'string') throw new Error('Description is required');
@@ -18,10 +30,20 @@ export const actions = {
 			await locals.pocketBase.collection('posts').create({
 				title,
 				content: description,
-				tags: tags.split(', '),
+				tags: tags.split(','),
 				image,
 				user: locals.pocketBase.authStore.model?.id
 			});
+
+			const splitTags = tags.split(' ');
+			splitTags.forEach(async (tag) => {
+				const locatedTag = await locals.pocketBase
+					.collection('tags')
+					.getFirstListItem(`tagName="${tag}"`);
+				if (locatedTag) {
+					locals.pocketBase.collection('tags').update(locatedTag.id, { uses: locatedTag.uses + 1 });
+				}
+			})
 		} catch (error) {
 			if (error instanceof Error) {
 				return {
