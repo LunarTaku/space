@@ -1,38 +1,87 @@
-# create-svelte
+# Space
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Space is an image board project for Discord. Users can upload images, and they show up on the website. It's that easy.
 
-## Creating a project
+## Table of Contents
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Upload images through Discord
+- Display uploaded images on the website
+- User-friendly interface
+- Responsive design
 
-## Developing
+## Installation
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To get started with Space, follow these steps:
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+1. **Clone the repository:**
 
 ```bash
-npm run build
+git clone https://github.com/LunarTaku/space.git
+cd space
 ```
 
-You can preview the production build with `npm run preview`.
+2. **Install dependencies:**
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Make sure you have Node.js and npm installed. Then run:
+
+```bash
+bun install
+```
+
+## Usage
+
+To run the project locally, use the following command:
+
+```bash
+bun run dev
+```
+
+This will start a development server, and you can view the project in your browser at `http://localhost:3000`.
+
+## Deployment
+
+To deploy the project, follow these steps:
+
+1. **Build the project:**
+
+```bash
+bun run build
+```
+
+This will generate the production-ready files in the `public` directory.
+
+2. **Serve the project:**
+
+You can use any static file server to serve the `public` directory. For example, using `serve`:
+
+```bash
+bun install -g serve
+serve -s public
+```
+
+Alternatively, you can deploy the project to platforms like Vercel, Netlify, or any other static site hosting provider by following their deployment instructions.
+
+## Contributing
+
+We welcome contributions! To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b my-feature-branch`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-feature-branch`
+5. Submit a pull request.
+
+Please make sure your code follows our coding conventions and passes all tests. 
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
