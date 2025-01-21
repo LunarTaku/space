@@ -1,6 +1,6 @@
 # Space
 
-Space is an image board project for Discord. Users can upload images, and they show up on the website. It's that easy.
+Space is an image board project. Users can upload images, and they show up on the website. It's that easy.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ Space is an image board project for Discord. Users can upload images, and they s
 
 ## Features
 
-- Upload images through Discord
+- Upload images
 - Display uploaded images on the website
 - User-friendly interface
 - Responsive design
